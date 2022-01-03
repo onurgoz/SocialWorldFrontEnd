@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-5">
+          <div class="project-info-box mt-0">
+              <h5>{{job.name}}</h5>
+              <p class="mb-0">{{job.explanation}}</p>
+          </div><!-- / project-info-box -->
+
+          <div class="project-info-box">
+            <p><b>Email:</b>{{company.email}}</p>
+            <p><b>Adres:</b>{{company.address}}</p>
+            <p><b>Telefon:</b>{{company.phoneNumber}}</p>
+          </div><!-- / project-info-box -->
+
+            <div class="btn-group  offset-sm-1">
+              <a class="btn btn-sm btn-outline-secondary"  *ngIf="!ifJobApplied" (click)="applyJob()">Katıl</a>
+              <div class="btn btn-sm btn-outline-success"  *ngIf="ifJobApplied">Bu işi aldınız</div>
+            </div>
+      </div><!-- / column -->
+
+      <div class="col-md-7">
+          <img src={{job.photoString}} alt="project-image" class="rounded">
+          <div class="project-info-box">
+              <p><b>Şirket Adı:</b>{{company.name}}</p>
+              <p><b>Şirket Hakkında:</b>{{company.explanation}}</p>
+          </div><!-- / project-info-box -->
+      </div><!-- / column -->
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<div class="d-flex justify-content-center">
+  <form
+    [formGroup]="addCompanyForm"
+    (ngSubmit)="addCompany()"
+    class="form-signin mt-5"
+  >
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <div class="text-center">
+          <h1 class="h3 mb-3 font-weight-normal">Şirket oluştur</h1>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 col-form-label">Şirket ismi</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          name="name"
+          class="form-control"
+          placeholder="Şirket ismi"
+          required
+          autofocus
+        />
+      </div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        addCompanyForm.get('name')?.hasError('required') &&
+        addCompanyForm.get('name')?.dirty
+      "
+    >
+      Şirket adı girmediniz.
+    </div>
+    <div class="form-group row">
+      <label for="address" class="col-sm-3 col-form-label">Şirket adresi</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          formControlName="address"
+          id="address"
+          name="address"
+          class="form-control"
+          placeholder="Şirket adresi"
+          required
+        />
+      </div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        addCompanyForm.get('address')?.hasError('required') &&
+        addCompanyForm.get('address')?.dirty
+      "
+    >
+      Şirket adı girmediniz.
+    </div>
+
+
+    <div class="form-group row">
+      <label for="explanation" class="col-sm-3 col-form-label">Açıklama</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          formControlName="explanation"
+          id="explanation"
+          name="explanation"
+          class="form-control"
+          placeholder="Açıklama"
+          required
+        />
+      </div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        addCompanyForm.get('explanation')?.hasError('required') &&
+        addCompanyForm.get('explanation')?.dirty
+      "
+    >
+      Açıklama girmediniz.
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          formControlName="email"
+          id="email"
+          name="email"
+          class="form-control"
+          placeholder="Email"
+          required
+        />
+      </div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        addCompanyForm.get('email')?.hasError('required') &&
+        addCompanyForm.get('email')?.dirty
+      "
+    >
+      Email girmediniz.
+    </div>
+
+    <div class="form-group row">
+      <label for="phoneNumber" class="col-sm-3 col-form-label">Telefon numarası</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          formControlName="phoneNumber"
+          id="phoneNumber"
+          name="phoneNumber"
+          class="form-control"
+          placeholder="Telefon numarası"
+          required
+        />
+      </div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        addCompanyForm.get('phoneNumber')?.hasError('required') &&
+        addCompanyForm.get('phoneNumber')?.dirty
+      "
+    >
+      Telefon numarası girmediniz.
+    </div>
+
+    <div class="form-group row">
+      <label for="photoString" class="col-sm-3 col-form-label">Fotoğraf linki</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          formControlName="photoString"
+          id="photoString"
+          name="photoString"
+          class="form-control"
+          placeholder="Fotoğraf linki"
+          required
+        />
+      </div>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        addCompanyForm.get('photoString')?.hasError('required') &&
+        addCompanyForm.get('photoString')?.dirty
+      "
+    >
+      Fotoğraf linki girmediniz.
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <button
+          class="btn btn-lg btn-primary btn-block"
+          type="submit"
+          [disabled]="addCompanyForm.invalid"
+        >
+          Ekle
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

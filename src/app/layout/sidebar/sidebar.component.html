@@ -1,0 +1,4 @@
+<div class="sidebar-container sidenav">
+  <a *ngIf="isLoggedIn() && isUserHaveCompany()" href="/company">Şirketler</a>
+  <a *ngIf="isLoggedIn()" href="/company/add_company">Şirket oluştur</a>
+</div>
