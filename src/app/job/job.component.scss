@@ -5,8 +5,8 @@
     text-align:center;
 }
 .container .img img{
-    width: 250px;
-    height: 200px;
+    width: 20%;
+    height: 20%;
     object-fit: cover;
 }
 .container .details{
@@ -15,4 +15,12 @@
 .container .details p{
     font-size:15px;
     font-weight:bold;
+}
+
+.jobs{
+  width:25%;
+  height:40%;
+}
+.btn-group{
+  width: 25%;
 }

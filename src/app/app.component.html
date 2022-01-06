@@ -1,9 +1,17 @@
-<div class="m-0">
-  <app-navbar></app-navbar>
-  <div class="sidebar" *ngIf="isLoggedIn()">
-    <app-sidebar *ngIf="isLoggedIn()"></app-sidebar>
+<div >
+  <div class="nav">
+
+    <app-navbar></app-navbar>
   </div>
-  <div class="main">
-    <router-outlet></router-outlet>
+  <div class="side" >
+    <app-sidebar ></app-sidebar>
+  </div >
+  <div class="main" style="padding-left: 0%;padding-top:5%;">
+    <router-outlet ></router-outlet>
+  </div>
+  <div class="footer">
+    <app-footer></app-footer>
+
   </div>
 </div>
+

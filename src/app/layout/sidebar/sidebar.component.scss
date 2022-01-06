@@ -1,18 +1,17 @@
 .sidenav {
   height: 100%;
-  width: 160px;
+  width: 10%;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background: rgb(248,249,250);
-  background: linear-gradient(180deg, rgba(248,249,250,1) 7%, rgba(199,199,199,1) 97%);
+  background: #1c2331;
   overflow-x: hidden;
-  padding-top: 100px;
+  padding-top: 5%;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 20% 5% 10% 5%;
   text-decoration: none;
   font-size: 20px;
   color: #050404;
@@ -23,10 +22,11 @@
   color: #888888;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 10%) {
   .sidenav {
-    padding-top: 15px;
+    padding-top: 10%;
   }
+
   .sidenav a {
     font-size: 18px;
   }

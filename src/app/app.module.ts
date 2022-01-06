@@ -25,6 +25,7 @@ import { DetailJobComponent } from './job/detail-job/detail-job.component';
 import { CompanyJobComponent } from './company/company-job/company-job.component';
 import { JobFilterByCompanyIdPipe } from './pipes/job-filter-by-company-id.pipe';
 import { ShortStringPipe } from './pipes/shortString.pipe';
+import { FooterComponent } from './layout/footer/footer.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ShortStringPipe } from './pipes/shortString.pipe';
     DetailJobComponent,
     CompanyJobComponent,
     JobFilterByCompanyIdPipe,
-    ShortStringPipe
+    ShortStringPipe,
+    FooterComponent
 
   ],
   imports: [
