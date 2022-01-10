@@ -1,6 +1,7 @@
 <div class="sidebar-container sidenav bg-dark text-white">
   <a *ngIf="isLoggedIn() && isUserHaveCompany()" class="text-white" href="/company">Şirketler</a>
   <a *ngIf="isLoggedIn()" class="text-white" href="/company/add_company">Şirket oluştur</a>
+  <a *ngIf="getRoles()" class="text-white" href="/job-type/add_job_type">İş Türü Ekle</a>
 </div>
 
 

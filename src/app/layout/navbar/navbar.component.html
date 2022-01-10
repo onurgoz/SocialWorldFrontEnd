@@ -1,5 +1,5 @@
 <nav class="nav1 navbar navbar-expand-lg" style="background-color: #7c4dff;">
-  <a class="navbar-brand text-white" routerLink="job"
+  <a class="navbar-brand text-white" routerLink="job" style="margin-left:13%;"
     >SocialWorld <span class="sr-only">(current)</span></a
   >
   <button
@@ -15,17 +15,30 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link text-white" routerLink=""
           >Home <span class="sr-only">(current)</span></a
         >
+      </li> -->
+      <li class="nav-item">
+        <a *ngIf="isLoggedIn() && isUserHaveCompany()" class="custom-nav nav-link text-white" href="/company">Şirketler</a>
+
+      </li>
+      <li class="nav-item">
+        <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/company/add_company">Şirket oluştur</a>
+
+
+      </li>
+      <li class="nav-item">
+        <a *ngIf="getRoles()" class="custom-nav nav-link text-white" href="/job_type/add_job_types">İş Türü Ekle</a>
+
       </li>
     </ul>
     <div class="navbar">
       <div *ngIf="isLoggedIn()" class="nav-link text-white">{{loogedUser()}}</div>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="register">Register</a>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="login">Login</a>
-      <a *ngIf="isLoggedIn()" class="nav-link text-white" (click)="logout()">Logout</a>
+      <a *ngIf="isLoggedIn()" class="logout nav-link " (click)="logout()">Logout <i class="logout-ikon fas fa-power-off"></i></a>
     </div>
   </div>
 </nav>

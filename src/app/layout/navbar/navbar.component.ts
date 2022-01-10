@@ -23,5 +23,13 @@ export class NavBarComponent implements OnInit {
     this.alertifyService.warning('Çıkış yapıldı');
     this.router.navigate(['login']);
   }
+  isUserHaveCompany(): boolean {
+    return sessionStorage.getItem('hasCompany') != null;
+  }
+  getRoles(): boolean {
+    console.log(sessionStorage.getItem('role'))
+    return sessionStorage.getItem('role') == 'Admin' ? true : false;
+  }
+
   ngOnInit(): void{}
 }

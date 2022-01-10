@@ -1,26 +1,32 @@
-.container{
-    padding:5%;
-}
-.container .img{
-    text-align:center;
-}
-.container .img img{
-    width: 20%;
-    height: 20%;
-    object-fit: cover;
-}
-.container .details{
-    border-left:3px solid #ded4da;
-}
-.container .details p{
-    font-size:15px;
-    font-weight:bold;
+.container {
+  padding: 5%;
 }
 
-.jobs{
-  width:25%;
-  height:40%;
+.container .img {
+  text-align: center;
 }
-.btn-group{
+
+.container .img img {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+}
+
+.container .details {
+  border-left: 3px solid #ded4da;
+}
+
+.container .details p {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.jobs {
   width: 25%;
+  height: 40%;
+}
+
+.btn-group {
+  width: 25%;
+  background-color: #6351ce !important;
 }

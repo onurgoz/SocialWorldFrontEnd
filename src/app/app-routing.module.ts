@@ -12,6 +12,8 @@ import { EditCompanyComponent } from './company/edit-company/edit-company.compon
 import { UserGuard } from './guards/user.guard';
 import { DetailJobComponent } from './job/detail-job/detail-job.component';
 import { CompanyJobComponent } from './company/company-job/company-job.component';
+import { AddJobTypeComponent } from './job-types/add-job-type/add-job-type.component';
+import { JobType } from './models/job-type';
 
 const routes: Routes = [
   { path: '', redirectTo: 'job', pathMatch: 'full' },
@@ -53,6 +55,16 @@ const routes: Routes = [
   },
   { path: 'job', component: JobComponent, canActivate: [UserGuard] },
   { path: 'register', component: RegisterComponent },
+  {
+    path: 'job_type/add_job_types',
+    component: AddJobTypeComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'job_type',
+    component: JobType,
+    canActivate: [UserGuard],
+  },
 ];
 
 @NgModule({

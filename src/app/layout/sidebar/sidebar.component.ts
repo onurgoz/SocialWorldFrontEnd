@@ -12,11 +12,16 @@ export class SidebarComponent implements OnInit {
   private readonly onDestroy = new Subject<void>();
   constructor() {}
 
-  isUserHaveCompany(): boolean{
-    return sessionStorage.getItem('hasCompany') != null;
-  }
+
   isLoggedIn(): boolean {
     return sessionStorage.getItem('token') != null;
+  }
+  isUserHaveCompany(): boolean {
+    return sessionStorage.getItem('hasCompany') != null;
+  }
+  getRoles():boolean{
+
+    return sessionStorage.getItem('role')=='Admin'?true:false;
   }
   ngOnInit(): void {}
 }

@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="addJobTypeForm" (ngSubmit)="addJobType()" class="form-signin mt-5">
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <div class="text-center">
+          <h1 class="h3 mb-3 font-weight-normal">Şirket oluştur</h1>
+        </div>
+       </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 col-form-label">Şirket ismi</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="name" id="name" name="name" class="form-control" placeholder="Şirket ismi"
+          required autofocus />
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="
+        addJobTypeForm.get('name')?.hasError('required') &&
+        addJobTypeForm.get('name')?.dirty
+      ">
+      İş Türünün Adını girmediniz.
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="addJobTypeForm.invalid">
+          Ekle
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

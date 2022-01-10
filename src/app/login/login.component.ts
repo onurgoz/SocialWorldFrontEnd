@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
     });
   }
   async login(): Promise<void> {
+
     if (this.loginForm.valid) {
       this.model = Object.assign({}, this.loginForm.value);
     }
+    await this.accountService.getRoles(this.model);
     await this.accountService.login(this.model).then(() => {
       this.alertifyService.success(this.model.email + ' giriş yaptı');
       this.router.navigate(['']);
