@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JobTypeService } from '../services/job-type.service';
 
 @Component({
   selector: 'app-job-types',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobTypesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    jobTypeService: JobTypeService
+  ) { }
+  getByIdJobType(id:number){
+
+  }
 
   ngOnInit(): void {
   }

@@ -25,7 +25,7 @@
 
       </li>
       <li class="nav-item">
-        <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/company/add_company">Şirket oluştur</a>
+        <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/company/add_company">Şirket Oluştur</a>
 
 
       </li>
@@ -38,7 +38,7 @@
       <div *ngIf="isLoggedIn()" class="nav-link text-white">{{loogedUser()}}</div>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="register">Register</a>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="login">Login</a>
-      <a *ngIf="isLoggedIn()" class="logout nav-link " (click)="logout()">Logout <i class="logout-ikon fas fa-power-off"></i></a>
+      <a *ngIf="isLoggedIn()" class="logout nav-link " (click)="logout()">Logout </a>
     </div>
   </div>
 </nav>

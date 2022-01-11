@@ -41,10 +41,18 @@ export class JobTypeService {
   async deleteJobType(id: number): Promise<void> {
     this.setHttpOptions();
     const response = await this.http
-      .delete<void>(this.path + id, this.httpOptions)
+      .delete<void>(this.path +"DeleteCompany"+ id, this.httpOptions)
       .toPromise();
     return response;
   }
+
+  getByIdJobType(id: number): Observable<JobType> {
+    this.setHttpOptions();
+    const response = this.http
+      .get<JobType>(this.path + "GetByIdJobType/" + id, this.httpOptions);
+    return response;
+  }
+
   private setHttpOptions(): void {
     this.httpOptions = {
       headers: new HttpHeaders({

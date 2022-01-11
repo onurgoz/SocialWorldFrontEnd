@@ -25,6 +25,7 @@ export class EditJobComponent implements OnInit {
   ) {}
   jobId!: number;
   companyId!: number;
+  jobTypeSelectedId!: number;
   editJobForm!: FormGroup;
   job: Job = new Job();
   jobTypes!: JobType[];
@@ -33,6 +34,7 @@ export class EditJobComponent implements OnInit {
       name: ['', Validators.required],
       explanation: ['', Validators.required],
       photoString: ['', Validators.required],
+      jobTypeId: ['', Validators.required]
     });
   }
 
@@ -58,7 +60,10 @@ export class EditJobComponent implements OnInit {
     this.createEditJobForm();
     this.jobService
       .getJob(this.jobId)
-      .subscribe((data) => this.editJobForm.patchValue(data));
+      .subscribe((data) => {
+        this.editJobForm.patchValue(data);
+        this.jobTypeSelectedId=data.jobTypeId;
+      });
     this.jobService.getJobTypes().subscribe((data) => {
       this.jobTypes = data;
     });

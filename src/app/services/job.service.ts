@@ -37,6 +37,7 @@ export class JobService {
           Id: job.id,
           Explanation: job.explanation,
           PhotoString: job.photoString,
+          JobTypeId: job.jobTypeId,
         },
         this.httpOptions
       )

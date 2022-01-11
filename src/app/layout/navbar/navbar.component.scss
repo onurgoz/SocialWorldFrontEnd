@@ -5,20 +5,24 @@
   height: 7%;
 }
 
-.a {
-  cursor: pointer;
 
+.a:hover {
+  cursor: pointer;
+  border: 5px solid;
+  border-color: #1c2331;
 }
 
-.logout:hover{
- cursor: pointer;
-  .logout-ikon{
-    color:red;
+.logout:hover {
+  cursor: pointer;
+
+  .logout-ikon {
+    color: red;
   }
 
 }
-.logout{
-  color:white;
+
+.logout {
+  color: white;
 }
 
 .custom-nav {
