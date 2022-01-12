@@ -23,6 +23,7 @@ export class JobService {
         CompanyId: job.companyId,
         Explanation: job.explanation,
         PhotoString: job.photoString,
+        AppUserId: job.appUserId,
       },
       this.httpOptions
     );

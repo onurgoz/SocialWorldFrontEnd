@@ -55,5 +55,6 @@ export class DetailJobComponent implements OnInit {
     this.job = await this.jobService.getJob(this.applicant.jobId).toPromise();
     this.company = await this.companyService.getCompanyById(this.job.companyId).toPromise();
     this.jobType = await this.jobTypeService.getByIdJobType(this.job.jobTypeId).toPromise();
+    this.job.explanation = this.job.explanation.replace("/n", "<br>");
   }
 }

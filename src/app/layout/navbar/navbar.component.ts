@@ -27,7 +27,7 @@ export class NavBarComponent implements OnInit {
     return sessionStorage.getItem('hasCompany') != null;
   }
   getRoles(): boolean {
-    console.log(sessionStorage.getItem('role'))
+
     return sessionStorage.getItem('role') == 'Admin' ? true : false;
   }
 

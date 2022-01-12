@@ -2,58 +2,62 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from 'src/app/models/company';
+import { Job } from 'src/app/models/job';
 import { JobType } from 'src/app/models/job-type';
 import { AlertifyService } from 'src/app/services/alertify.service';
-import { CompanyService } from 'src/app/services/company.service';
 import { JobService } from 'src/app/services/job.service';
-import { Job } from '../../../models/job';
 
 @Component({
-  selector: 'app-add-job',
-  templateUrl: './add-job.component.html',
-  styleUrls: ['./add-job.component.scss'],
+  selector: 'app-add-social-responsibility',
+  templateUrl: './add-social-responsibility.component.html',
+  styleUrls: ['./add-social-responsibility.component.scss']
 })
-export class AddJobComponent implements OnInit {
-  constructor(
-    private formBuilder: FormBuilder,
+export class AddSocialResponsibilityComponent implements OnInit {
+
+  constructor(private formBuilder: FormBuilder,
     private jobService: JobService,
     private alertifyService: AlertifyService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
-  addJobForm!: FormGroup;
+    private route: ActivatedRoute) { }
+
+  addSocialResponsibilityForm!: FormGroup;
   job: Job = new Job();
   jobTypes!: JobType[];
   companies!: Company[];
   companyId!: number;
-  createAddJobForm(): void {
-    this.addJobForm = this.formBuilder.group({
+  createAddSocialResponsibilityForm(): void {
+    this.addSocialResponsibilityForm = this.formBuilder.group({
       name: ['', Validators.required],
-      jobTypeId: ['', Validators.required],
       photoString: ['', Validators.required],
       explanation: ['', Validators.required],
     });
   }
 
-  addJob(): void {
+  addSocialResponsibility(): void {
     this.companyId = this.route.snapshot.params.companyId;
-    if (this.addJobForm.valid) {
+    if (this.addSocialResponsibilityForm.valid) {
 
-      this.job = Object.assign({}, this.addJobForm.value);
-      this.job.companyId = this.companyId;
+      this.job = Object.assign({}, this.addSocialResponsibilityForm.value);
+      if (this.companyId != null) {
+        this.job.companyId = this.companyId;
+      }else{
+        this.job.companyId =1;
+      }
+      this.job.jobTypeId = 9999
       this.job.appUserId = Number(sessionStorage.getItem('userId'));
       this.jobService.addJob(this.job).subscribe((data) => {
         this.alertifyService.success(data.name + ' eklendi');
         this.router.navigate(['company/' + this.companyId]);
       });
+    } else {
+      this.alertifyService.error("Lütfen alanları doğru şekilde doldurunuz.");
     }
 
   }
 
   ngOnInit(): void {
-    this.createAddJobForm();
-    this.jobService.getJobTypes().subscribe((data) => {
-      this.jobTypes = data;
-    });
+    this.createAddSocialResponsibilityForm();
+
   }
+
 }

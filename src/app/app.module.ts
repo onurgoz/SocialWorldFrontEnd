@@ -28,6 +28,8 @@ import { ShortStringPipe } from './pipes/shortString.pipe';
 import { FooterComponent } from './layout/footer/footer.component';
 import { JobTypesComponent } from './job-types/job-types.component';
 import { AddJobTypeComponent } from './job-types/add-job-type/add-job-type.component';
+import { SocialResponsibilityComponent } from './social-responsibility/social-responsibility.component';
+import { AddSocialResponsibilityComponent } from './social-responsibility/add-social-responsibility/add-social-responsibility.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { AddJobTypeComponent } from './job-types/add-job-type/add-job-type.compo
     ShortStringPipe,
     FooterComponent,
     JobTypesComponent,
-    AddJobTypeComponent
+    AddJobTypeComponent,
+    SocialResponsibilityComponent,
+    AddSocialResponsibilityComponent
 
   ],
   imports: [

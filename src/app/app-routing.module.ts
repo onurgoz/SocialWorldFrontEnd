@@ -14,6 +14,9 @@ import { DetailJobComponent } from './job/detail-job/detail-job.component';
 import { CompanyJobComponent } from './company/company-job/company-job.component';
 import { AddJobTypeComponent } from './job-types/add-job-type/add-job-type.component';
 import { JobType } from './models/job-type';
+import { JobTypesComponent } from './job-types/job-types.component';
+import { SocialResponsibilityComponent } from './social-responsibility/social-responsibility.component';
+import { AddSocialResponsibilityComponent } from './social-responsibility/add-social-responsibility/add-social-responsibility.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'job', pathMatch: 'full' },
@@ -62,7 +65,17 @@ const routes: Routes = [
   },
   {
     path: 'job_type',
-    component: JobType,
+    component: JobTypesComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'social_responsibility',
+    component: SocialResponsibilityComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'social_responsibility/add_social_responsibility',
+    component: AddSocialResponsibilityComponent,
     canActivate: [UserGuard],
   },
 ];

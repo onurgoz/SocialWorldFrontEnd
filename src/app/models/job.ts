@@ -5,4 +5,5 @@ export class Job {
   companyId!: number;
   explanation!: string;
   photoString!: string;
+  appUserId!: number;
 }

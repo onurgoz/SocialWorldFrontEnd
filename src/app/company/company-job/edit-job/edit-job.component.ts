@@ -43,6 +43,7 @@ export class EditJobComponent implements OnInit {
       this.job = Object.assign({}, this.editJobForm.value);
     }
     this.job.id = this.jobId;
+    this.job.appUserId = Number(sessionStorage.getItem('userId'));
     await this.jobService
       .editJob(this.job)
       .then(() => {

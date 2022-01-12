@@ -5,26 +5,27 @@
           <div class="project-info-box mt-0">
               <h5>{{job.name}}</h5><hr>
               <p class="mb-0">{{job.explanation}}</p>
+
           </div><!-- / project-info-box -->
 
           <div class="project-info-box">
-            <p><b>İş Türü:</b>{{jobType.name}}</p><hr>
-            <p><b>Email:</b>{{company.email}}</p><hr>
-            <p><b>Adres:</b>{{company.address}}</p><hr>
-            <p><b>Telefon:</b>{{company.phoneNumber}}</p><hr>
+            <p><b>İş Türü: </b>{{jobType.name}}</p><hr>
+            <p><b>Email: </b>{{company.email}}</p><hr>
+            <p><b>Adres: </b>{{company.address}}</p><hr>
+            <p><b>Telefon: </b>{{company.phoneNumber}}</p><hr>
           </div><!-- / project-info-box -->
 
             <div class="btn-group  offset-sm-1">
-              <a class="text-white btn btn-sm btn-outline-secondary"   *ngIf="!ifJobApplied" (click)="applyJob()">Katıl</a>
-              <div class="text-white btn btn-sm btn-outline-success"  *ngIf="ifJobApplied">Bu işi aldınız</div>
+              <a class="text-white btn  mat-raised-button"   *ngIf="!ifJobApplied" (click)="applyJob()">Katıl</a>
+              <div class="text-white btn  mat-raised-button"  *ngIf="ifJobApplied">Bu işi aldınız</div>
             </div>
       </div><!-- / column -->
 
       <div class="col-md-7">
           <img src={{job.photoString}} alt="project-image" class="rounded">
           <div class="project-info-box">
-              <p><b>Şirket Adı:</b>{{company.name}}</p><hr>
-              <p><b>Şirket Hakkında:</b>{{company.explanation}}</p>
+              <p><b>Şirket Adı: </b>{{company.name}}</p><hr>
+              <p><b>Şirket Hakkında: </b>{{company.explanation}}</p>
           </div><!-- / project-info-box -->
       </div><!-- / column -->
   </div>

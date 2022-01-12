@@ -21,6 +21,7 @@
           name="name"
           class="form-control"
           placeholder="İş ismi"
+          maxlength=100
           required
           autofocus
         />
@@ -29,7 +30,7 @@
     <div
       class="alert alert-danger"
       *ngIf="
-        editJobForm.get('name')?.hasError('required') &&
+        (editJobForm.get('name')?.hasError('required')|| editJobForm.get('name')?.hasError('maxlength')) &&
         editJobForm.get('name')?.dirty
       "
     >
@@ -39,16 +40,8 @@
     <div class="form-group row">
       <label for="explanation" class="col-sm-3 col-form-label">Açıklama</label>
       <div class="col-sm-9">
-        <input
-          type="text"
-          formControlName="explanation"
-          id="explanation"
-          name="explanation"
-          class="form-control"
-          placeholder="Açıklama"
-          required
-          autofocus
-        />
+        <textarea ng-model="explanation" type="text" formControlName="explanation" id="explanation" name="explanation"
+          class="form-control" placeholder="Açıklama" required autofocus></textarea>
       </div>
     </div>
     <div
@@ -101,7 +94,7 @@
             editJobForm.get('jobType.id')?.hasError('required') &&
             editJobForm.get('jobType.id')?.touched
           ">
-      Şirket seçmediniz
+      İş Türü seçmediniz
     </div>
     <div class="form-group row">
       <div class="col-sm-9 offset-sm-3">

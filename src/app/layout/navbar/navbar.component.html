@@ -30,9 +30,15 @@
 
       </li>
       <li class="nav-item">
+        <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/social_responsibility/add_social_responsibility">Sosyal Sorumluluk Oluştur</a>
+
+
+      </li>
+      <li class="nav-item">
         <a *ngIf="getRoles()" class="custom-nav nav-link text-white" href="/job_type/add_job_types">İş Türü Ekle</a>
 
       </li>
+
     </ul>
     <div class="navbar">
       <div *ngIf="isLoggedIn()" class="nav-link text-white">{{loogedUser()}}</div>

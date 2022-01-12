@@ -22,6 +22,7 @@
           name="name"
           class="form-control"
           placeholder="İş adı"
+          maxLength=100
           required
           autofocus
         />
@@ -30,17 +31,17 @@
     <div
       class="alert alert-danger"
       *ngIf="
-        addJobForm.get('name')?.hasError('required') &&
+        addJobForm.get('name')?.hasError('required')&&
         addJobForm.get('name')?.dirty
       "
     >
-      İş adı girmediniz.
+      İş adı boş olamaz.
     </div>
 
     <div class="form-group row">
       <label for="explanation" class="col-sm-3 col-form-label">Açıklama</label>
       <div class="col-sm-9">
-        <input
+        <!-- <input
           type="text"
           formControlName="explanation"
           id="explanation"
@@ -49,7 +50,15 @@
           placeholder="Açıklama"
           required
           autofocus
-        />
+        /> -->
+        <textarea ng-model="explanation" type="text"
+          formControlName="explanation"
+          id="explanation"
+          name="explanation"
+          class="form-control"
+          placeholder="Açıklama"
+          required
+          autofocus></textarea>
       </div>
     </div>
     <div
