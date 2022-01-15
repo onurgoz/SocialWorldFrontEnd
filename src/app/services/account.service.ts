@@ -55,7 +55,15 @@ export class AccountService {
 
   async register(user: UserRegisterModel): Promise<any> {
     return this.http
-      .post<any>(this.path + 'signup', user, this.httpOptions)
+      .post<any>(this.path + 'signup',
+        {
+          FirstName: user.firstName,
+          LastName: user.lastName,
+          Email: user.email,
+          NationalityId: user.nationalityId,
+          DateOfBirth: user.dateOfBirth,
+          Password: user.password
+        }, this.httpOptions)
       .toPromise();
   }
 

@@ -21,18 +21,21 @@
         >
       </li> -->
       <li class="nav-item">
+        <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/social_responsibility">Sosyal Sorumluluk Projeleri</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/job">İş İlanları</a>
+      </li>
+      <li class="nav-item">
         <a *ngIf="isLoggedIn() && isUserHaveCompany()" class="custom-nav nav-link text-white" href="/company">Şirketler</a>
 
       </li>
       <li class="nav-item">
         <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/company/add_company">Şirket Oluştur</a>
-
-
       </li>
+
       <li class="nav-item">
         <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/social_responsibility/add_social_responsibility">Sosyal Sorumluluk Oluştur</a>
-
-
       </li>
       <li class="nav-item">
         <a *ngIf="getRoles()" class="custom-nav nav-link text-white" href="/job_type/add_job_types">İş Türü Ekle</a>

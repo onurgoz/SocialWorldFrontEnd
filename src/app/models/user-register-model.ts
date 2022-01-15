@@ -1,5 +1,8 @@
 export class UserRegisterModel {
-    name!: string;
-    email!: string;
-    password!: string;
+  firstName!: string;
+  email!: string;
+  lastName!: string;
+  nationalityId!: string;
+  dateOfBirth!: Date;
+  password!: string;
 }

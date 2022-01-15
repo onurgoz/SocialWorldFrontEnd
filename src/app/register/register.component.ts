@@ -24,7 +24,10 @@ export class RegisterComponent implements OnInit {
 
   createRegisterForm(): void {
     this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      nationalityId: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
@@ -32,6 +35,7 @@ export class RegisterComponent implements OnInit {
   async register(): Promise<void> {
     if (this.registerForm.valid) {
       this.model = Object.assign({}, this.registerForm.value);
+      console.log(this.model);
     }
     await this.accountService
       .register(this.model)

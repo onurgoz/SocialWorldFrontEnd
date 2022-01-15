@@ -3,11 +3,18 @@
   <div class="nav" >
 
     <app-navbar ></app-navbar>
-  </div>
-  <div class="side" >
-    <!-- <app-sidebar ></app-sidebar> -->
 
-  </div >
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="#">Data</a></li>
+      </ol>
+
+  </div>
+  <!-- <div class="side" >
+    <app-sidebar ></app-sidebar>
+
+  </div > -->
   <div class="main" style="padding-left: 0%;padding-top:5%;">
     <router-outlet ></router-outlet>
   </div>

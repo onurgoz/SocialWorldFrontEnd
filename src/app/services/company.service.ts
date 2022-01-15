@@ -18,6 +18,7 @@ export class CompanyService {
         Address: company.address,
         AppUserId: company.userId,
         Email: company.email,
+        TaxNumber: company.taxNumber,
         Explanation: company.explanation,
         PhoneNumber: company.phoneNumber,
         PhotoString: company.photoString
@@ -35,6 +36,7 @@ export class CompanyService {
           Address: company.address,
           Name: company.name,
           Email: company.email,
+          TaxNumber: company.taxNumber,
           Explanation: company.explanation,
           PhoneNumber: company.phoneNumber,
           PhotoString: company.photoString

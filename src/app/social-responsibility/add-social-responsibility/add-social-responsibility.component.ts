@@ -47,7 +47,7 @@ export class AddSocialResponsibilityComponent implements OnInit {
       this.job.appUserId = Number(sessionStorage.getItem('userId'));
       this.jobService.addJob(this.job).subscribe((data) => {
         this.alertifyService.success(data.name + ' eklendi');
-        this.router.navigate(['company/' + this.companyId]);
+        this.router.navigate(['social_responsibility']);
       });
     } else {
       this.alertifyService.error("Lütfen alanları doğru şekilde doldurunuz.");

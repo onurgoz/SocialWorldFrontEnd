@@ -65,10 +65,21 @@ export class JobService {
       this.httpOptions
     );
   }
+  GetAllJobsByJobTypeId(jobTypeId: number): Observable<Job[]> {
+    this.setHttpOptions();
+    return this.http.get<Job[]>(this.jobPath + 'GetAllJobsByJobTypeId/' + jobTypeId, this.httpOptions);
+  }
+
+  GetAllJobsByExceptThisJobTypeId(jobTypeId: number): Observable<Job[]> {
+    this.setHttpOptions();
+    return this.http.get<Job[]>(this.jobPath + 'GetAllJobsByExceptThisJobTypeId/' + jobTypeId, this.httpOptions);
+  }
+
   getJob(jobId: number): Observable<Job> {
     this.setHttpOptions();
     return this.http.get<Job>(this.jobPath + jobId, this.httpOptions);
   }
+
   private setHttpOptions(): void {
     this.httpOptions = {
       headers: new HttpHeaders({

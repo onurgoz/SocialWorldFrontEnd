@@ -30,6 +30,8 @@ import { JobTypesComponent } from './job-types/job-types.component';
 import { AddJobTypeComponent } from './job-types/add-job-type/add-job-type.component';
 import { SocialResponsibilityComponent } from './social-responsibility/social-responsibility.component';
 import { AddSocialResponsibilityComponent } from './social-responsibility/add-social-responsibility/add-social-responsibility.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { AddSocialResponsibilityComponent } from './social-responsibility/add-so
     JobTypesComponent,
     AddJobTypeComponent,
     SocialResponsibilityComponent,
-    AddSocialResponsibilityComponent
+    AddSocialResponsibilityComponent,
+    UserProfileComponent
 
   ],
   imports: [
@@ -62,6 +65,7 @@ import { AddSocialResponsibilityComponent } from './social-responsibility/add-so
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     AccountService,

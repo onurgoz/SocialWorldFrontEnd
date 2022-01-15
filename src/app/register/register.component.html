@@ -4,26 +4,60 @@
       <h1 class="h3 mb-3 font-weight-normal">Kayıt Yap</h1>
     </div>
     <div class="mb-2">
-      <label for="name" class="sr-only">Ad Soyad</label>
+      <label for="firstName" class="sr-only">Ad</label>
       <input
-        type="name"
-        formControlName="name"
-        id="name"
-        name="name"
+        type="firstName"
+        formControlName="firstName"
+        id="firstName"
+        name="firstName"
         class="form-control"
-        placeholder="Ad Soyad"
+        placeholder="Ad"
         required
       />
       <div
         class="alert alert-danger"
         *ngIf="
-          registerForm.get('name')?.hasError('required') &&
-          registerForm.get('name')?.dirty
+          registerForm.get('firstName')?.hasError('required') &&
+          registerForm.get('firstName')?.dirty
         "
       >
         Adınızı girmediniz!
       </div>
     </div>
+    <div class="mb-2">
+      <label for="lastName" class="sr-only">Soyad</label>
+      <input type="lastName" formControlName="lastName" id="lastName" name="lastName" class="form-control" placeholder="Soyad"
+        required />
+      <div class="alert alert-danger" *ngIf="
+                            registerForm.get('lastName')?.hasError('required') &&
+                            registerForm.get('lastName')?.dirty
+                          ">
+        Soyadınızı girmediniz!
+      </div>
+    </div>
+    <div class="mb-2">
+          <label for="dateOfBirth" class="sr-only">Doğum Tarihi</label>
+          <input type="datetime-local" formControlName="dateOfBirth" id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="Doğum Tarihi"
+            required />
+          <div class="alert alert-danger" *ngIf="
+                  registerForm.get('dateOfBirth')?.hasError('required') &&
+                  registerForm.get('dateOfBirth')?.dirty
+                ">
+            Doğum Tarihi girmediniz!
+          </div>
+        </div>
+      <div class="mb-2">
+        <label for="nationalityId" class="sr-only">Tc Kimlik No</label>
+        <input type="nationalityId" formControlName="nationalityId" id="nationalityId"
+          name="nationalityId" class="form-control" placeholder="Tc Kimlik No" required />
+        <div class="alert alert-danger" *ngIf="
+                        registerForm.get('nationalityId')?.hasError('required') &&
+                        registerForm.get('nationalityId')?.dirty
+                      ">
+          Tc Kimlik No girmediniz!
+        </div>
+      </div>
+
     <div class="mb-2">
       <label for="email" class="sr-only">Email</label>
       <input

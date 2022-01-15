@@ -1,15 +1,17 @@
 .main {
   // margin-left: 160px;
   /* Same as the width of the sidenav */
-  padding: 0px 10px;
+  margin-bottom:5% ;
 }
 
 
 
 .footer {
   margin-left: 0%;
-  /* Same as the width of the sidenav */
-  margin-bottom: 0%;
+
+  bottom: 0px;
+  margin-bottom:0!important;
+  padding-bottom: 0!important;
 
 }
 

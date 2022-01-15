@@ -27,6 +27,7 @@ export class EditCompanyComponent implements OnInit {
       name: ['', Validators.required],
       address: ['', Validators.required],
       explanation: ['', Validators.required],
+      taxNumber: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       photoString: ['', Validators.required],
       email: ['', Validators.required],

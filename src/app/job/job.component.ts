@@ -16,7 +16,7 @@ export class JobComponent implements OnInit {
   ) {}
   jobs!: Job[];
   getJobs(): void{
-    this.jobService.getAllJobs().subscribe((data) => {
+    this.jobService.GetAllJobsByExceptThisJobTypeId(9999).subscribe((data) => {
       this.jobs = data;
     });
   }

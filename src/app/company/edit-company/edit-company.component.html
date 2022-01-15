@@ -59,7 +59,7 @@
     >
       Adres girmediniz.
     </div>
-    
+
     <div class="form-group row">
       <label for="explanation" class="col-sm-3 col-form-label">Açıklama</label>
       <div class="col-sm-9">
@@ -84,7 +84,19 @@
     >
       Açıklama girmediniz.
     </div>
-    
+    <div class="form-group row">
+      <label for="taxNumber" class="col-sm-3 col-form-label">Vergi Numarası</label>
+      <div class="col-sm-9">
+        <input type="taxNumber" formControlName="taxNumber" id="taxNumber" name="taxNumber" class="form-control" placeholder="Vergi Numarası"
+          required autofocus />
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="
+            editCompanyForm.get('taxNumber')?.hasError('required') &&
+            editCompanyForm.get('taxNumber')?.dirty
+          ">
+      Vergi Numarası girmediniz.
+    </div>
     <div class="form-group row">
       <label for="email" class="col-sm-3 col-form-label">Email</label>
       <div class="col-sm-9">
@@ -109,7 +121,7 @@
     >
       Email girmediniz.
     </div>
-    
+
     <div class="form-group row">
       <label for="phoneNumber" class="col-sm-3 col-form-label">Telefon numarası</label>
       <div class="col-sm-9">
@@ -134,7 +146,7 @@
     >
       Telefon numarası girmediniz.
     </div>
-    
+
     <div class="form-group row">
       <label for="photoString" class="col-sm-3 col-form-label">Potoğraf linki</label>
       <div class="col-sm-9">

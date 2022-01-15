@@ -1,5 +1,8 @@
 export class User {
     id!: number;
     email!: string;
-    name!: string;
+    firstName!: string;
+    lastName!: string;
+    nationalityId!: string;
+    dateOfBirth!: Date;
 }
