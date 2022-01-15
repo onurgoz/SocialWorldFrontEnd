@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, observable } from 'rxjs';
 import { retry, tap } from 'rxjs/operators';
 import { Role } from '../models/role-models';
 import { User } from '../models/user';
@@ -52,7 +53,10 @@ export class AccountService {
     );
 
   }
-
+    getUserDetails(userId: number): Observable<User>{
+    this.setHttpOptions();
+    return this.http.get<User>(this.path+"GetUserDetails/"+userId,this.httpOptions);
+  }
   async register(user: UserRegisterModel): Promise<any> {
     return this.http
       .post<any>(this.path + 'signup',

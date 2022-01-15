@@ -47,7 +47,18 @@
       <div *ngIf="isLoggedIn()" class="nav-link text-white">{{loogedUser()}}</div>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="register">Register</a>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="login">Login</a>
-      <a *ngIf="isLoggedIn()" class="logout nav-link " (click)="logout()">Logout </a>
-    </div>
+      <div *ngIf="isLoggedIn()" class="dropdown">
+        <div  class="profile"> <img title="a" class="dropbtn" src="https://i.imgur.com/ywRonqz.jpg">
+          <div class="dropdown-content">
+            <ul>
+              <li><a routerLink="user_profile"  class="logout nav-link " >Profil </a></li>
+              <li><a  class="logout nav-link " (click)="logout()">Logout </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
   </div>
 </nav>

@@ -6,6 +6,7 @@ import { AlertifyService } from '../services/alertify.service';
 import { UserRegisterModel } from '../models/user-register-model';
 import { CompanyService } from '../services/company.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private alertifyService: AlertifyService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+
   ) {}
   registerForm!: FormGroup;
   model: UserRegisterModel = new UserRegisterModel();
@@ -32,6 +34,10 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
     });
   }
+
+
+
+
   async register(): Promise<void> {
     if (this.registerForm.valid) {
       this.model = Object.assign({}, this.registerForm.value);

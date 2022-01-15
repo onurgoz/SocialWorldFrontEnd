@@ -66,6 +66,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+
   ],
   providers: [
     AccountService,
@@ -74,6 +75,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VolunteerGuard,
     EmployerGuard,
     CompanyService,
+
   ],
   bootstrap: [AppComponent],
 })
