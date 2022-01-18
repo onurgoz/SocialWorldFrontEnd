@@ -33,7 +33,7 @@ export class CompanyJobComponent implements OnInit {
   }
   getJobs(): void {
     this.companyId = this.route.snapshot.params.companyId;
-    this.jobService.getAllJobs().subscribe((data) => {
+    this.jobService.GetAllJobsByExceptThisJobTypeId(9999).subscribe((data) => {
       this.jobs = data;
     });
   }

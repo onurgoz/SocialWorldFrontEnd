@@ -8,11 +8,11 @@ import { CompanyService } from 'src/app/services/company.service';
 import { JobService } from 'src/app/services/job.service';
 
 @Component({
-  selector: 'app-edit-job-city',
-  templateUrl: './edit-job-city.component.html',
-  styleUrls: ['./edit-job-city.component.scss']
+  selector: 'app-edit-social-responsibility',
+  templateUrl: './edit-social-responsibility.component.html',
+  styleUrls: ['./edit-social-responsibility.component.scss']
 })
-export class EditJobCityComponent implements OnInit {
+export class EditSocialResponsibilityComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,13 +27,11 @@ export class EditJobCityComponent implements OnInit {
   jobTypeSelectedId!: number;
   editJobForm!: FormGroup;
   job: Job = new Job();
-  jobTypes!: JobType[];
   createEditJobForm(): void {
     this.editJobForm = this.formBuilder.group({
       name: ['', Validators.required],
       explanation: ['', Validators.required],
       photoString: ['', Validators.required],
-      jobTypeId: ['', Validators.required]
     });
   }
 
@@ -47,7 +45,7 @@ export class EditJobCityComponent implements OnInit {
       .editJob(this.job)
       .then(() => {
         this.alertifyService.success('Güncelleme başarılı');
-        this.router.navigate(['company/' + this.companyId]);
+        this.router.navigate(['city/social-responsibility']);
       })
       .catch(() => {
         this.alertifyService.error('Hata');
@@ -56,7 +54,7 @@ export class EditJobCityComponent implements OnInit {
 
   ngOnInit(): void {
     this.jobId = this.route.snapshot.params.jobId;
-    this.companyId = Number(sessionStorage.getItem('cityId'));
+    this.companyId = this.route.snapshot.params.companyId;
     this.createEditJobForm();
     this.jobService
       .getJob(this.jobId)
@@ -64,8 +62,6 @@ export class EditJobCityComponent implements OnInit {
         this.editJobForm.patchValue(data);
         this.jobTypeSelectedId = data.jobTypeId;
       });
-    this.jobService.getJobTypes().subscribe((data) => {
-      this.jobTypes = data;
-    });
   }
+
 }

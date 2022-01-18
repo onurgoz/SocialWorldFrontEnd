@@ -43,6 +43,7 @@ import { AddSocialResponsibilityCityComponent } from './city/city-social-respons
 import { EditSocialResponsibilityCityComponent } from './city/city-social-responsibility/edit-social-responsibility-city/edit-social-responsibility-city.component';
 import { EditJobCityComponent } from './city/city-job/edit-job-city/edit-job-city.component';
 import { AddJobCityComponent } from './city/city-job/add-job-city/add-job-city.component';
+import { EditSocialResponsibilityComponent } from './social-responsibility/edit-social-responsibility/edit-social-responsibility.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { AddJobCityComponent } from './city/city-job/add-job-city/add-job-city.c
     EditJobCityComponent,
     AddJobCityComponent,
     CompanySocialResponsibilityComponent,
-    CitySocialResponsibilityComponent
+    CitySocialResponsibilityComponent,
+    EditSocialResponsibilityComponent
 
   ],
   imports: [

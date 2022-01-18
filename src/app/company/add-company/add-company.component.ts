@@ -37,6 +37,7 @@ export class AddCompanyComponent implements OnInit {
       const userId = Number(sessionStorage.getItem('userId'));
       this.company = Object.assign({}, this.addCompanyForm.value);
       this.company.userId = userId;
+      this.company.companyTypeId = 2;
     }
     this.companyService.addCompany(this.company).subscribe((data) => {
       sessionStorage.setItem('hasCompany', 'true');

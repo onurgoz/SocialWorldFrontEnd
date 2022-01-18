@@ -5,7 +5,7 @@ export class Company {
     address!: string;
     explanation!: string;
     taxNumber!: string;
-    companyTypeId!: number;
+    companyTypeId?: number;
     email!: string;
     phoneNumber!: string;
     photoString!: string;

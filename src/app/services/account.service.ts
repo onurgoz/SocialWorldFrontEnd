@@ -35,14 +35,14 @@ export class AccountService {
       })
       .then(async () => {
         const ifUserHaveCompany = await this.companyService.ifUserHaveCompany();
-        const ifUserHaveCity= await this.companyService.ifUserHaveCity();
         this.companyService.getUserCity().subscribe(data => { this.city = data; });
         if (ifUserHaveCompany) {
           sessionStorage.setItem('hasCompany', 'true');
         }
-        if (ifUserHaveCity){
+      }).then(async (data) => {
+        const ifUserHaveCity = await this.companyService.ifUserHaveCity();
+        if (ifUserHaveCity) {
           sessionStorage.setItem('hasCity', 'true');
-          console.log(this.city);
           sessionStorage.setItem('cityId', String(this.city[0].id));
         }
       });

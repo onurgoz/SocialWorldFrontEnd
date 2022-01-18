@@ -56,6 +56,11 @@ const routes: Routes = [
     canActivate: [UserGuard, EmployerGuard],
   },
   {
+    path: 'company/company-social-responsibility/:companyId',
+    component: CompanyJobComponent,
+    canActivate: [UserGuard, EmployerGuard],
+  },
+  {
     path: 'company/:companyId/edit_job/:jobId',
     component: EditJobComponent,
     canActivate: [UserGuard, EmployerGuard],
@@ -93,9 +98,9 @@ const routes: Routes = [
     canActivate: [UserGuard],
   },
   {
-    path: '/city',
+    path: 'city/add-city',
     component: CityComponent,
-    canActivate: [UserGuard, CityGuard],
+    canActivate: [UserGuard, AdminGuard],
   },
   {
     path: 'city/city-social-responsibility',
@@ -113,17 +118,17 @@ const routes: Routes = [
     canActivate: [UserGuard, CityGuard],
   },
   {
-    path: '/city/city-job',
+    path: 'city/city-job',
     component: CityJobComponent,
     canActivate: [UserGuard, CityGuard],
   },
   {
-    path: '/city/city-job/add-job',
+    path: 'city/city-job/add-job',
     component: AddJobCityComponent,
     canActivate: [UserGuard, CityGuard],
   },
   {
-    path: '/city/city-job/edit-job',
+    path: 'city/city-job/edit-job',
     component: EditJobCityComponent,
     canActivate: [UserGuard, CityGuard],
   },

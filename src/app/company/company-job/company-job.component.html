@@ -21,16 +21,9 @@
           <hr />
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <a
-                class="btn mat-raised-button text-white"
-                href="company/{{ companyId }}/edit_job/{{ job.id }}"
-                >Düzenle</a
-              >
-              <a
-                class=" btn mat-raised-button text-white"
-                (click)="deleteJob(job.id)"
-                >Sil</a
-              >
+              <a class="btn mat-raised-button text-white" href="company/{{ companyId }}/edit_job/{{ job.id }}">Düzenle</a>
+              <a class="btn mat-raised-button text-white" href="company/{{ companyId }}/aplicat/{{ job.id }}">Başvurular</a>
+              <a class=" btn mat-raised-button text-white" (click)="deleteJob(job.id)">Sil</a>
             </div>
           </div>
         </div>
