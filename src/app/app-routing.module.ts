@@ -13,11 +13,19 @@ import { UserGuard } from './guards/user.guard';
 import { DetailJobComponent } from './job/detail-job/detail-job.component';
 import { CompanyJobComponent } from './company/company-job/company-job.component';
 import { AddJobTypeComponent } from './job-types/add-job-type/add-job-type.component';
-import { JobType } from './models/job-type';
 import { JobTypesComponent } from './job-types/job-types.component';
 import { SocialResponsibilityComponent } from './social-responsibility/social-responsibility.component';
 import { AddSocialResponsibilityComponent } from './social-responsibility/add-social-responsibility/add-social-responsibility.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CityJobComponent } from './city/city-job/city-job.component';
+import { AddJobCityComponent } from './city/city-job/add-job-city/add-job-city.component';
+import { AddSocialResponsibilityCityComponent } from './city/city-social-responsibility/add-social-responsibility-city/add-social-responsibility-city.component';
+import { EditSocialResponsibilityCityComponent } from './city/city-social-responsibility/edit-social-responsibility-city/edit-social-responsibility-city.component';
+import { EditJobCityComponent } from './city/city-job/edit-job-city/edit-job-city.component';
+import { CitySocialResponsibilityComponent } from './city/city-social-responsibility/city-social-responsibility.component';
+import { CityGuard } from './guards/city.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { CityComponent } from './city/city.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'job', pathMatch: 'full' },
@@ -62,7 +70,7 @@ const routes: Routes = [
   {
     path: 'job_type/add_job_types',
     component: AddJobTypeComponent,
-    canActivate: [UserGuard],
+    canActivate: [UserGuard, AdminGuard],
   },
   {
     path: 'job_type',
@@ -83,6 +91,41 @@ const routes: Routes = [
     path: 'user_profile',
     component: UserProfileComponent,
     canActivate: [UserGuard],
+  },
+  {
+    path: '/city',
+    component: CityComponent,
+    canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: 'city/city-social-responsibility',
+    component: CitySocialResponsibilityComponent,
+    canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: 'city/city-social-responsibility/add-social-responsibility',
+    component: AddSocialResponsibilityCityComponent,
+    canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: 'city/city-social-responsibility/edit-social-responsibility',
+    component: EditSocialResponsibilityCityComponent,
+    canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: '/city/city-job',
+    component: CityJobComponent,
+    canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: '/city/city-job/add-job',
+    component: AddJobCityComponent,
+    canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: '/city/city-job/edit-job',
+    component: EditJobCityComponent,
+    canActivate: [UserGuard, CityGuard],
   },
 ];
 

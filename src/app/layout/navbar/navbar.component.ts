@@ -26,6 +26,9 @@ export class NavBarComponent implements OnInit {
   isUserHaveCompany(): boolean {
     return sessionStorage.getItem('hasCompany') != null;
   }
+  isUserHaveCity(): boolean {
+    return sessionStorage.getItem('hasCity') != null;
+  }
   getRoles(): boolean {
 
     return sessionStorage.getItem('role') == 'Admin' ? true : false;

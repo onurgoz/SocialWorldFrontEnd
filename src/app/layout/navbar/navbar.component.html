@@ -28,12 +28,21 @@
       </li>
       <li class="nav-item">
         <a *ngIf="isLoggedIn() && isUserHaveCompany()" class="custom-nav nav-link text-white" href="/company">Şirketler</a>
-
       </li>
       <li class="nav-item">
         <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/company/add_company">Şirket Oluştur</a>
       </li>
-
+      <li class="nav-item">
+        <div *ngIf="isLoggedIn() && isUserHaveCity()" class="nav-item dropdown">
+                <a  data-toggle="dropdown" class=" custom-nav text-white nav-item nav-link dropdown-toggle user-action">Belediye İşlemleri</a>
+                <div class="dropdown-menu">
+                  <a href="/city/city-social-responsibility" class="dropdown-item"><i class="fas fa-calendar-alt"></i> Sosyal Sorumluluklarım</a>
+                  <a href="/city/city-job" class="dropdown-item"><i class="fas fa-calendar-alt"></i> İş İlanlarım</a>
+                  <a href="/city/city-social-responsibility/add-social-responsibility"><i class="fas fa-calendar-alt"></i> Sosyal Sorumluluk Projesi Oluştur</a>
+                  <a href="/city/city-job/add-job" class="dropdown-item"><i class="fas fa-calendar-alt"></i> İş İlanı Oluştur</a>
+                </div>
+              </div>
+      </li>
       <li class="nav-item">
         <a *ngIf="isLoggedIn()" class="custom-nav nav-link text-white" href="/social_responsibility/add_social_responsibility">Sosyal Sorumluluk Oluştur</a>
       </li>
@@ -44,21 +53,32 @@
 
     </ul>
     <div class="navbar">
-      <div *ngIf="isLoggedIn()" class="nav-link text-white">{{loogedUser()}}</div>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="register">Register</a>
       <a *ngIf="!isLoggedIn()" class="nav-link text-white" routerLink="login">Login</a>
-      <div *ngIf="isLoggedIn()" class="dropdown">
-        <div  class="profile"> <img title="a" class="dropbtn" src="https://i.imgur.com/ywRonqz.jpg">
+
+        <!-- <div  class="profile"> <img title="a" class="dropbtn" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
           <div class="dropdown-content">
             <ul>
               <li><a routerLink="user_profile"  class="logout nav-link " >Profil </a></li>
-              <li><a  class="logout nav-link " (click)="logout()">Logout </a></li>
+              <li><a  class="logout nav-link " (click)="logout()">Çıkış </a></li>
             </ul>
+          </div>
+        </div> -->
+        <div *ngIf="isLoggedIn()" class="nav-item dropdown">
+          <a href="#" data-toggle="dropdown" class="text-white nav-item nav-link dropdown-toggle user-action"><img
+              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" class="avatar text-white" alt="Avatar"> {{loogedUser()}} <b
+              class="caret"></b></a>
+          <div class="dropdown-menu">
+            <a routerLink="user_profile" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+            <!-- <a href="#" class="dropdown-item"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a> -->
+            <div class="divider dropdown-divider"></div>
+            <a href="#" class="dropdown-item" (click)="logout()"><i class="fas fa-sign-out-alt" style="color:red"></i> Logout</a>
           </div>
         </div>
       </div>
 
 
-      </div>
+
   </div>
 </nav>

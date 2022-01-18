@@ -5,6 +5,7 @@ import { Company } from '../models/company';
 
 @Injectable()
 export class CompanyService {
+  [x: string]: any;
   constructor(private http: HttpClient) {}
   path = 'http://localhost:56183/api/company/';
 
@@ -19,6 +20,25 @@ export class CompanyService {
         AppUserId: company.userId,
         Email: company.email,
         TaxNumber: company.taxNumber,
+        CompanyTypeId: 2,
+        Explanation: company.explanation,
+        PhoneNumber: company.phoneNumber,
+        PhotoString: company.photoString
+      },
+      this.httpOptions
+    );
+  }
+  addCity(company: Company): Observable<Company> {
+    this.setHttpOptions();
+    return this.http.post<Company>(
+      this.path,
+      {
+        Name: company.name,
+        Address: company.address,
+        AppUserId: company.userId,
+        Email: company.email,
+        TaxNumber: company.taxNumber,
+        CompanyTypeId: 3,
         Explanation: company.explanation,
         PhoneNumber: company.phoneNumber,
         PhotoString: company.photoString
@@ -59,6 +79,23 @@ export class CompanyService {
       this.httpOptions
     );
   }
+  getUserCity(): Observable<Company[]> {
+    this.setHttpOptions();
+    return this.http.get<Company[]>(
+      this.path + 'getcity/' + sessionStorage.getItem('userId'),
+      this.httpOptions
+    );
+  }
+
+  GetAllJobsByJobTypeId(companyTypeId: number): Observable<Company[]> {
+    this.setHttpOptions();
+    return this.http.get<Company[]>(this.path + 'GetAllCompanyByCompanyTypeId/' + companyTypeId, this.httpOptions);
+  }
+
+  GetAllJobsByExceptThisJobTypeId(companyTypeId: number): Observable<Company[]> {
+    this.setHttpOptions();
+    return this.http.get<Company[]>(this.path + 'GetAllCompanyByExceptThisCompanyTypeId/' + companyTypeId, this.httpOptions);
+  }
 
   getCompanyById(id: number): Observable<Company> {
     this.setHttpOptions();
@@ -72,6 +109,16 @@ export class CompanyService {
     }
     return true;
   }
+
+  async ifUserHaveCity(): Promise<boolean> {
+    this.setHttpOptions();
+    const response = await this.getUserCity().toPromise();
+    if (response.length === 0) {
+      return false;
+    }
+    return true;
+  }
+
   private setHttpOptions(): void {
     this.httpOptions = {
       headers: new HttpHeaders({

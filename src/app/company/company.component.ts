@@ -36,6 +36,11 @@ export class CompanyComponent implements OnInit {
       this.companies = data;
     });
   }
+  getCitys(): void {
+    this.companyService.getUserCity().subscribe((data) => {
+      this.companies = data;
+    });
+  }
   ngOnInit(): void {
     this.getCompanies();
   }

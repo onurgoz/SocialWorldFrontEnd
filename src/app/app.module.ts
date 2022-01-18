@@ -32,6 +32,17 @@ import { SocialResponsibilityComponent } from './social-responsibility/social-re
 import { AddSocialResponsibilityComponent } from './social-responsibility/add-social-responsibility/add-social-responsibility.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CityComponent } from './city/city.component';
+import { AddCityComponent } from './city/add-city/add-city.component';
+import { CityJobComponent } from './city/city-job/city-job.component';
+import { CitySocialResponsibilityComponent } from './city/city-social-responsibility/city-social-responsibility.component';
+import { EditCityComponent } from './city/edit-city/edit-city.component';
+
+import { CompanySocialResponsibilityComponent } from './company/company-social-responsibility/company-social-responsibility.component';
+import { AddSocialResponsibilityCityComponent } from './city/city-social-responsibility/add-social-responsibility-city/add-social-responsibility-city.component';
+import { EditSocialResponsibilityCityComponent } from './city/city-social-responsibility/edit-social-responsibility-city/edit-social-responsibility-city.component';
+import { EditJobCityComponent } from './city/city-job/edit-job-city/edit-job-city.component';
+import { AddJobCityComponent } from './city/city-job/add-job-city/add-job-city.component';
 
 
 @NgModule({
@@ -56,7 +67,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddJobTypeComponent,
     SocialResponsibilityComponent,
     AddSocialResponsibilityComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CityComponent,
+    AddCityComponent,
+    CityJobComponent,
+    EditCityComponent,
+    AddSocialResponsibilityCityComponent,
+    EditSocialResponsibilityCityComponent,
+    EditJobCityComponent,
+    AddJobCityComponent,
+    CompanySocialResponsibilityComponent,
+    CitySocialResponsibilityComponent
 
   ],
   imports: [
