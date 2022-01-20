@@ -1,0 +1,16 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Job ID</th>
+      <th>User Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of applicants | applicantFilterByJobId:jobId">
+      <td>{{ person.id }}</td>
+      <td>{{ person.jobId }}</td>
+      <td>{{ person.userId }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -26,6 +26,7 @@ import { CitySocialResponsibilityComponent } from './city/city-social-responsibi
 import { CityGuard } from './guards/city.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { CityComponent } from './city/city.component';
+import { ApplicantComponent } from './applicant/applicant.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'job', pathMatch: 'full' },
@@ -63,6 +64,11 @@ const routes: Routes = [
   {
     path: 'company/:companyId/edit_job/:jobId',
     component: EditJobComponent,
+    canActivate: [UserGuard, EmployerGuard],
+  },
+  {
+    path: 'company/:companyId/:jobId/applicants',
+    component: ApplicantComponent,
     canActivate: [UserGuard, EmployerGuard],
   },
   {
@@ -131,6 +137,11 @@ const routes: Routes = [
     path: 'city/city-job/edit-job',
     component: EditJobCityComponent,
     canActivate: [UserGuard, CityGuard],
+  },
+  {
+    path: 'applicant',
+    component: ApplicantComponent,
+    canActivate: [UserGuard],
   },
 ];
 

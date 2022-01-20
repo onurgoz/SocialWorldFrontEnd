@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -37,14 +36,15 @@ import { AddCityComponent } from './city/add-city/add-city.component';
 import { CityJobComponent } from './city/city-job/city-job.component';
 import { CitySocialResponsibilityComponent } from './city/city-social-responsibility/city-social-responsibility.component';
 import { EditCityComponent } from './city/edit-city/edit-city.component';
-
 import { CompanySocialResponsibilityComponent } from './company/company-social-responsibility/company-social-responsibility.component';
 import { AddSocialResponsibilityCityComponent } from './city/city-social-responsibility/add-social-responsibility-city/add-social-responsibility-city.component';
 import { EditSocialResponsibilityCityComponent } from './city/city-social-responsibility/edit-social-responsibility-city/edit-social-responsibility-city.component';
 import { EditJobCityComponent } from './city/city-job/edit-job-city/edit-job-city.component';
 import { AddJobCityComponent } from './city/city-job/add-job-city/add-job-city.component';
 import { EditSocialResponsibilityComponent } from './social-responsibility/edit-social-responsibility/edit-social-responsibility.component';
-
+import { ApplicantComponent } from './applicant/applicant.component';
+import { DataTablesModule } from "angular-datatables";
+import { ApplicantFilterByJobIdPipe } from './pipes/applicant-filter-by-job-id.pipe';
 
 @NgModule({
   declarations: [
@@ -79,8 +79,9 @@ import { EditSocialResponsibilityComponent } from './social-responsibility/edit-
     AddJobCityComponent,
     CompanySocialResponsibilityComponent,
     CitySocialResponsibilityComponent,
-    EditSocialResponsibilityComponent
-
+    EditSocialResponsibilityComponent,
+    ApplicantComponent,
+    ApplicantFilterByJobIdPipe
   ],
   imports: [
     BrowserModule,
@@ -89,7 +90,7 @@ import { EditSocialResponsibilityComponent } from './social-responsibility/edit-
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-
+    DataTablesModule
   ],
   providers: [
     AccountService,
@@ -98,7 +99,6 @@ import { EditSocialResponsibilityComponent } from './social-responsibility/edit-
     VolunteerGuard,
     EmployerGuard,
     CompanyService,
-
   ],
   bootstrap: [AppComponent],
 })

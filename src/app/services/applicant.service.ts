@@ -32,6 +32,15 @@ export class ApplicantService {
     );
   }
 
+  getAllJobApplicants(): Observable<Applicant[]> {
+    this.setHttpOptions();
+    return this.http.get<Applicant[]>(
+      this.path + 'getallapplicants/',
+      this.httpOptions
+    );
+  }
+
+
   getUserApplicants(userId: number): Observable<Applicant[]> {
     this.setHttpOptions();
     return this.http.get<Applicant[]>(
