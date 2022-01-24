@@ -43,7 +43,7 @@ import { EditJobCityComponent } from './city/city-job/edit-job-city/edit-job-cit
 import { AddJobCityComponent } from './city/city-job/add-job-city/add-job-city.component';
 import { EditSocialResponsibilityComponent } from './social-responsibility/edit-social-responsibility/edit-social-responsibility.component';
 import { ApplicantComponent } from './applicant/applicant.component';
-import { DataTablesModule } from "angular-datatables";
+import { DataTablesModule } from 'angular-datatables';
 import { ApplicantFilterByJobIdPipe } from './pipes/applicant-filter-by-job-id.pipe';
 
 @NgModule({

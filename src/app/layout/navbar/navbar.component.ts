@@ -11,7 +11,7 @@ import { AlertifyService } from 'src/app/services/alertify.service';
 export class NavBarComponent implements OnInit {
 
   constructor(private accountService: AccountService, private router: Router, private alertifyService: AlertifyService) {}
-
+  photoString?: string;
   isLoggedIn(): boolean {
     return this.accountService.isLoggedIn();
   }
@@ -29,10 +29,22 @@ export class NavBarComponent implements OnInit {
   isUserHaveCity(): boolean {
     return sessionStorage.getItem('hasCity') != null;
   }
-  getRoles(): boolean {
 
-    return sessionStorage.getItem('role') == 'Admin' ? true : false;
+  isUserValid(): boolean {
+    return sessionStorage.getItem('isValid') === 'true';
   }
 
-  ngOnInit(): void{}
+  isUserHavePhotoString(): boolean {
+    return sessionStorage.getItem('photoString') !== null && sessionStorage.getItem('photoString') !== '';
+  }
+  getRoles(): boolean {
+
+    return sessionStorage.getItem('role') === 'Admin' ? true : false;
+  }
+
+  ngOnInit(): void{
+    if (this.isUserHavePhotoString()){
+      this.photoString = sessionStorage.getItem('photoString') || '';
+    }
+  }
 }

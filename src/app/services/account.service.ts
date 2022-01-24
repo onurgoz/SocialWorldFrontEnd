@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlHandlingStrategy } from '@angular/router';
 import { Observable, observable } from 'rxjs';
 import { retry, tap } from 'rxjs/operators';
 import { Company } from '../models/company';
@@ -21,6 +22,7 @@ export class AccountService {
   authPath = 'http://localhost:56183/api/auth/';
   userPath = 'http://localhost:56183/api/user/';
   roles!:Role[];
+  loginUser!:User;
   httpOptions = {};
   async login(user: UserLoginModel): Promise<any> {
     return this.http
@@ -30,8 +32,14 @@ export class AccountService {
         sessionStorage.setItem('loggedUser', user.email);
         sessionStorage.setItem('token', data.token);
         this.setHttpOptions();
-        const userId = (await this.getActiveUser()).id.toString();
-        sessionStorage.setItem('userId', userId);
+        this.loginUser = (await this.getActiveUser());
+        if (this.loginUser.photoString != null && this.loginUser.photoString !== ''){
+          sessionStorage.setItem('photoString', this.loginUser.photoString);
+        }
+        sessionStorage.setItem('userId', this.loginUser.id.toString());
+
+        sessionStorage.setItem('isValid', this.loginUser.isValid.toString());
+
       })
       .then(async () => {
         const ifUserHaveCompany = await this.companyService.ifUserHaveCompany();
@@ -47,6 +55,9 @@ export class AccountService {
         }
       });
   }
+
+
+
   async getRoles(user: UserLoginModel): Promise<any> {
     return await this.http.get<Role[]>(this.authPath +"getroles?Email="+user.email,this.httpOptions).toPromise().then(res => {
 
@@ -73,6 +84,12 @@ export class AccountService {
     return this.http.get<User>(this.userPath +"getuserdetails/"+userId,this.httpOptions);
   }
 
+  editUserValidation(userId: number) : Observable<void>{
+    this.setHttpOptions();
+    return this.http.get<void>(
+        this.userPath + "GetUserNationalityIdCheck/"+userId,this.httpOptions
+      );
+  }
   editUser(user: User): Promise<User> {
     this.setHttpOptions();
     return this.http
@@ -83,6 +100,8 @@ export class AccountService {
           FirstName: user.firstName,
           LastName: user.lastName,
           Email: user.email,
+          PhoneNumber: user.phoneNumber,
+          PhotoString: user.photoString,
           NationalityId: user.nationalityId,
           DateOfBirth: user.dateOfBirth,
         },
@@ -98,6 +117,8 @@ export class AccountService {
           FirstName: user.firstName,
           LastName: user.lastName,
           Email: user.email,
+          PhoneNumber: user.phoneNumber,
+          PhotoString: user.photoString,
           NationalityId: user.nationalityId,
           DateOfBirth: user.dateOfBirth,
           Password: user.password
@@ -122,6 +143,8 @@ export class AccountService {
     sessionStorage.removeItem('role');
     sessionStorage.removeItem('hasCity');
     sessionStorage.removeItem('cityId');
+    sessionStorage.removeItem('photoString');
+    sessionStorage.removeItem('isValid');
   }
 
   private setHttpOptions(): void {

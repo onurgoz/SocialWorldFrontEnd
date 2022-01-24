@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ApplicantList } from '../models/applcant-list';
 import { Applicant } from '../models/applicant';
 
 @Injectable({
@@ -36,6 +37,14 @@ export class ApplicantService {
     this.setHttpOptions();
     return this.http.get<Applicant[]>(
       this.path + 'getallapplicants/',
+      this.httpOptions
+    );
+  }
+
+  getAllApplicantDto(): Observable<ApplicantList[]> {
+    this.setHttpOptions();
+    return this.http.get<ApplicantList[]>(
+      this.path + 'GetAllApplicantDto/',
       this.httpOptions
     );
   }

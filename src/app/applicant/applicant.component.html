@@ -1,16 +1,24 @@
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Job ID</th>
-      <th>User Id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of applicants | applicantFilterByJobId:jobId">
-      <td>{{ person.id }}</td>
-      <td>{{ person.jobId }}</td>
-      <td>{{ person.userId }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="col-md-12">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Başvuru Tarihi</th>
+        <th>İsim</th>
+        <th>Soyisim</th>
+        <th>Email</th>
+        <th>Telefon Numarası</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let applicant of applicantList">
+        <td>{{ applicant.id }}</td>
+        <td>{{ applicant.applicationDate | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ applicant.FirstName}}</td>
+        <td>{{ applicant.lastName}}</td>
+        <td>{{ applicant.email}}</td>
+        <td>{{applicant.phoneNumber}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

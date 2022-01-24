@@ -60,22 +60,23 @@
 
     <div class="mb-2">
       <label for="email" class="sr-only">Email</label>
-      <input
-        type="email"
-        formControlName="email"
-        id="email"
-        name="email"
-        class="form-control"
-        placeholder="Email"
-        required
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="
-          registerForm.get('email')?.hasError('required') &&
-          registerForm.get('email')?.dirty
-        "
-      >
+      <input type="email" formControlName="email" id="email" name="email" class="form-control" placeholder="Email"
+        required />
+      <div class="alert alert-danger" *ngIf="
+              registerForm.get('email')?.hasError('required') &&
+              registerForm.get('email')?.dirty
+            ">
+        Email adresinizi girmediniz!
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="phoneNumber" class="sr-only">Telefon Numarası</label>
+      <input type="phone" formControlName="phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Telefon Numarası"
+        required />
+      <div class="alert alert-danger" *ngIf="
+              registerForm.get('phoneNumber')?.hasError('required') &&
+              registerForm.get('phoneNumber')?.dirty
+            ">
         Email adresinizi girmediniz!
       </div>
     </div>
