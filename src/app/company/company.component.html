@@ -1,9 +1,7 @@
 
-<div class="container">
-
-  <div class="row">
-    <div class=" col-md-6" *ngFor="let company of companies">
-      <div class="companies card mb-6 box-shadow">
+  <div class="row col-md-12">
+    <div class=" col-md-6" *ngFor="let company of companies" style="padding-left: 5%;">
+      <div class="companies card mb-5 box-shadow">
         <img class="card-img-top" alt="Thumbnail [100%x225]"  src={{company.photoString}}>
         <div class="card-body" >
           <h4 class="card-text font-weight-bold" style="font-size:16px">{{company.name | shortString: 50}}</h4><hr>
@@ -14,17 +12,15 @@
           <label class="font-weight-bold" style=" font-size:12">Telefon </label> <p>{{company.phoneNumber}}</p><hr>
           <div class="btn-group d-flex justify-content-between align-items-center">
             <div class="btn-group" >
-              <a class="btn mat-raised-button text-white"   href="/company/edit_company/{{company.id}}">Düzenle</a>
-              <a class="btn mat-raised-button text-white" (click)="deleteCompany(company.id)">Sil</a>
-            </div>
-            <div class="btn-group" >
-              <a class="btn mat-raised-button text-white"  href="/company/{{company.id}}">İşler</a>
-              <a class="btn mat-raised-button text-white"  href="/company/company-social-responsibility/{{company.id}}">Projeler</a>
-              <a class="btn mat-raised-button text-white"  href="/company/{{company.id}}/add_job">İş Ekle</a>
+              <a class="btn mat-raised-button text-white" style=" font-size:10"  href="/company/edit_company/{{company.id}}">Düzenle</a>
+              <a class="btn mat-raised-button text-white" style=" font-size:10" (click)="deleteCompany(company.id)">Sil</a>
+              <a class="btn mat-raised-button text-white" style=" font-size:10" href="/company/{{company.id}}">İşler</a>
+              <a class="btn mat-raised-button text-white" style=" font-size:10" href="/company/company-social-responsibility/{{company.id}}">Projeler</a>
+              <a class="btn mat-raised-button text-white" style=" font-size:10" href="/company/{{company.id}}/add_job">İş Ekle</a>
+              <a class="btn mat-raised-button text-white" style=" font-size:10" href="/company/{{company.id}}/add_social_responsibility">Proje Ekle</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>

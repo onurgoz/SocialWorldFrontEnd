@@ -45,6 +45,8 @@ import { EditSocialResponsibilityComponent } from './social-responsibility/edit-
 import { ApplicantComponent } from './applicant/applicant.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ApplicantFilterByJobIdPipe } from './pipes/applicant-filter-by-job-id.pipe';
+import { AddSocialResponsibilityCompanyComponent } from './company/company-social-responsibility/add-social-responsibility-company/add-social-responsibility-company.component';
+import { EditSocialResponsibilityCompanyComponent } from './company/company-social-responsibility/edit-social-responsibility-company/edit-social-responsibility-company.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,9 @@ import { ApplicantFilterByJobIdPipe } from './pipes/applicant-filter-by-job-id.p
     CitySocialResponsibilityComponent,
     EditSocialResponsibilityComponent,
     ApplicantComponent,
-    ApplicantFilterByJobIdPipe
+    ApplicantFilterByJobIdPipe,
+    AddSocialResponsibilityCompanyComponent,
+    EditSocialResponsibilityCompanyComponent
   ],
   imports: [
     BrowserModule,

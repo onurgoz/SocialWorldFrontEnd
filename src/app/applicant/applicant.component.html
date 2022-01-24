@@ -1,4 +1,8 @@
+
 <div class="col-md-12">
+  <div style="text-align:center;">
+    <h2 style="font-weight: bold;">Başvurular</h2> {{jobId}}
+  </div>
   <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
     <thead>
       <tr>
@@ -11,10 +15,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let applicant of applicantList">
+      <tr *ngFor="let applicant of applicantList | applicantFilterByJobId:jobId">
         <td>{{ applicant.id }}</td>
         <td>{{ applicant.applicationDate | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ applicant.FirstName}}</td>
+        <td>{{ applicant.firstName}}</td>
         <td>{{ applicant.lastName}}</td>
         <td>{{ applicant.email}}</td>
         <td>{{applicant.phoneNumber}}</td>

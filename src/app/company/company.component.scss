@@ -1,23 +1,23 @@
-.container {
+.row {
   padding-right: 2%;
   padding-bottom: 2%;
 }
 
-.container .img {
+.img {
   text-align: center;
 }
 
-.container .img img {
+.img img {
   width: 20%;
   height: 20%;
   object-fit: cover;
 }
 
-.container .details {
+.details {
   border-left: 3px solid #ded4da;
 }
 
-.container .details p {
+.details p {
   font-size: 15px;
   font-weight: bold;
 }

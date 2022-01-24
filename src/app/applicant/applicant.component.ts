@@ -27,11 +27,11 @@ export class ApplicantComponent implements OnDestroy, OnInit {
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
   dtTrigger: Subject<any> = new Subject<any>();
-    getApplicants(): void {
-      // this.jobId = this.route.snapshot.params.jobId;
+   getApplicants(): void {
+      this.jobId = this.route.snapshot.params.jobId;
       this.applicantService.getAllApplicantDto().subscribe(data => {
         this.applicantList = data;
-        console.log(this.applicantList[0].FirstName);
+
         this.dtTrigger.next();
       });
     }
@@ -41,6 +41,7 @@ export class ApplicantComponent implements OnDestroy, OnInit {
       pageLength: 10
     };
     this.getApplicants();
+    console.log(this.applicantList);
   }
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event

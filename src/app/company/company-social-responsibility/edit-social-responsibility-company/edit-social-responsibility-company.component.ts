@@ -7,11 +7,12 @@ import { CompanyService } from 'src/app/services/company.service';
 import { JobService } from 'src/app/services/job.service';
 
 @Component({
-  selector: 'app-edit-social-responsibility',
-  templateUrl: './edit-social-responsibility.component.html',
-  styleUrls: ['./edit-social-responsibility.component.scss']
+  selector: 'app-edit-social-responsibility-company',
+  templateUrl: './edit-social-responsibility-company.component.html',
+  styleUrls: ['./edit-social-responsibility-company.component.scss']
 })
-export class EditSocialResponsibilityComponent implements OnInit {
+export class EditSocialResponsibilityCompanyComponent implements OnInit {
+
   constructor(
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
@@ -49,6 +50,7 @@ export class EditSocialResponsibilityComponent implements OnInit {
         this.alertifyService.error('Hata');
       });
   }
+
   ngOnInit(): void {
     this.jobId = this.route.snapshot.params.jobId;
     this.companyId = this.route.snapshot.params.companyId;

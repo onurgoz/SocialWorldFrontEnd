@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="addJobForm" (ngSubmit)="addJob()" class="form-signin mt-5">
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <div class="text-center">
+          <h1 class="h3 mb-3 font-weight-normal">İş Oluştur</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 col-form-label">Proje adı</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="name" id="name" name="name" class="form-control" placeholder="İş adı"
+          maxLength=100 required autofocus />
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="
+        addJobForm.get('name')?.hasError('required')&&
+        addJobForm.get('name')?.dirty
+      ">
+      Proje adı boş olamaz.
+    </div>
+
+    <div class="form-group row">
+      <label for="explanation" class="col-sm-3 col-form-label">Açıklama</label>
+      <div class="col-sm-9">
+        <!-- <input
+          type="text"
+          formControlName="explanation"
+          id="explanation"
+          name="explanation"
+          class="form-control"
+          placeholder="Açıklama"
+          required
+          autofocus
+        /> -->
+        <textarea ng-model="explanation" type="text" formControlName="explanation" id="explanation" name="explanation"
+          class="form-control" placeholder="Açıklama" required autofocus></textarea>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="
+        addJobForm.get('explanation')?.hasError('required') &&
+        addJobForm.get('explanation')?.dirty
+      ">
+      Açıklama girmediniz.
+    </div>
+
+    <div class="form-group row">
+      <label for="photoString" class="col-sm-3 col-form-label">Fotoğraf linki</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="photoString" id="photoString" name="photoString" class="form-control"
+          placeholder="Fotoğraf linki" required autofocus />
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="
+        addJobForm.get('photoString')?.hasError('required') &&
+        addJobForm.get('photoString')?.dirty
+      ">
+      Fotoğraf linki girmediniz.
+    </div>
+
+
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="addJobForm.invalid">
+          Ekle
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

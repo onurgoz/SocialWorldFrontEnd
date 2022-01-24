@@ -29,6 +29,9 @@ import { CityComponent } from './city/city.component';
 import { ApplicantComponent } from './applicant/applicant.component';
 import { CompanySocialResponsibilityComponent } from './company/company-social-responsibility/company-social-responsibility.component';
 import { IsValidUserGuard } from './guards/is-valid-user.guard';
+import { AddSocialResponsibilityCompanyComponent } from './company/company-social-responsibility/add-social-responsibility-company/add-social-responsibility-company.component';
+import { EditSocialResponsibilityComponent } from './social-responsibility/edit-social-responsibility/edit-social-responsibility.component';
+import { EditSocialResponsibilityCompanyComponent } from './company/company-social-responsibility/edit-social-responsibility-company/edit-social-responsibility-company.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'job', pathMatch: 'full' },
@@ -69,6 +72,11 @@ const routes: Routes = [
     canActivate: [UserGuard, EmployerGuard],
   },
   {
+    path: 'company/:companyId/edit_social_responsibility/:jobId',
+    component: EditSocialResponsibilityComponent,
+    canActivate: [UserGuard, EmployerGuard],
+  },
+  {
     path: 'company/:companyId/:jobId/applicants',
     component: ApplicantComponent,
     canActivate: [UserGuard, EmployerGuard],
@@ -99,6 +107,16 @@ const routes: Routes = [
     path: 'social_responsibility/add_social_responsibility',
     component: AddSocialResponsibilityComponent,
     canActivate: [UserGuard, IsValidUserGuard],
+  },
+  {
+    path: 'company/:companyId/add_social_responsibility',
+    component: AddSocialResponsibilityCompanyComponent,
+    canActivate: [UserGuard, EmployerGuard],
+  },
+  {
+    path: 'company/:companyId/edit_social_responsibility',
+    component: EditSocialResponsibilityCompanyComponent,
+    canActivate: [UserGuard, EmployerGuard],
   },
   {
     path: 'user_profile',
